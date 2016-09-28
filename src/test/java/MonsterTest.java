@@ -215,4 +215,22 @@ public class MonsterTest {
     Timestamp rightNow = new Timestamp(new Date().getTime());
     assertEquals(rightNow.getMinutes(), savedMonsterLastSlept.getMinutes());
   }
+
+  @Test
+  public void save_recordsTimeMonsterLastAte() {
+    Monster testMonster = new Monster("Bubbles", 1);
+    testMonster.save();
+    Timestamp savedMonsterLastAte = Monster.find(testMonster.getId()).getLastAte();
+    Timestamp rightNow = new Timestamp(new Date().getTime());
+    assertEquals(rightNow.getMinutes(), savedMonsterLastAte.getMinutes());
+  }
+
+  @Test
+  public void save_recordsTimeMonsterLastPlayed() {
+    Monster testMonster = new Monster("Bubbles", 1);
+    testMonster.save();
+    Timestamp savedMonsterLastPlayed = Monster.find(testMonster.getId()).getLastPlayed();
+    Timestamp rightNow = new Timestamp(new Date().getTime());
+    assertEquals(rightNow.getMinutes(), savedMonsterLastPlayed.getMinutes());
+  }
 }

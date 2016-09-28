@@ -67,9 +67,21 @@ public class Monster {
     return birthday;
   }
 
+  public Timestamp getLastSlept(){
+    return lastSlept;
+  }
+
+  public Timestamp getLastAte(){
+    return lastAte;
+  }
+
+  public Timestamp getLastPlayed(){
+    return lastAte;
+  }
+
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO monsters (name, personId, birthday) VALUES (:name, :personId, now())";
+      String sql = "INSERT INTO monsters (name, personId, birthday, lastSlept, lastAte, lastPlayed) VALUES (:name, :personId, now(), now(), now(), now())";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
         .addParameter("personId", this.personId)
