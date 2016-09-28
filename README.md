@@ -12,10 +12,10 @@ _Virtual Pets is a basic database-backed Spark application that allows users to 
 
 * _Clone the virtual_pets repository [here](https://github.com/tiki84626/virtual_pets)._
 * _Set up necessary Database and Tables:_
-    * _Make sure Postgres Server is running:_ `postgres`,
-    * _Open new terminal tab/window and connect to Postgres:_ `psql`,
-    * _Create database virtual_pets (in sql):_ `CREATE DATABASE virtual_pets;`,
-    * _Navigate to project directory in terminal and load tables:_ `psql virtual_pets < media.sql`.
+    * _make sure Postgres Server is running:_ `postgres`,
+    * _open new terminal tab/window and connect to Postgres:_ `psql`,
+    * _create database virtual_pets (in sql):_ `CREATE DATABASE virtual_pets;`,
+    * _navigate to project directory in terminal and load tables:_ `psql virtual_pets < media.sql`.
 * _Brew or Scoop install gradle._
 * _Navigate to project directory compolie and run:_ `gradle run`.
 
