@@ -1,18 +1,23 @@
-# _Dictionary_
+# _Virtual Pets_
 
-#### _Dictionary is a webapp that allows users to add words and definitions to a viewable list, 9/16/16_
+#### _Virtual Pets is a web app that allows users to "adopt" digital creatures, 9/28/16_
 
 #### By _**Andrew Malkin**_
 
 ## Description
 
-_Dictionary uses Spark and Velocity to present user inputed words and definitions in an accessible fashion. Users are prompted to input a word. Then they are asked to input the corresponding definition.  Users may add more than one definition for any given word. After which all words are displayed as links where the respecitve definition(s) are listed._
+_Virtual Pets is a basic database-backed Spark application that allows users to adopt a digital pet. It includes methods for different interactions users have with their pets, such as feeding them, putting them to bed, or playing with them._
 
 ## Setup/Installation Requirements
 
-* _Clone the dictionary repository form [here](https://github.com/tiki84626/virtual_pets)._
+* _Clone the virtual_pets repository [here](https://github.com/tiki84626/virtual_pets)._
+* _Set up necessary Database and Tables:_
+    * _Make sure Postgres Server is running:_ `postgres`,
+    * _Open new terminal tab/window and connect to Postgres:_ `psql`,
+    * _Create database virtual_pets (in sql):_ `CREATE DATABASE virtual_pets;`,
+    * _Navigate to project directory in terminal and load tables:_ `psql virtual_pets < media.sql`.
 * _Brew or Scoop install gradle._
-* _Compolie and run._
+* _Navigate to project directory compolie and run:_ `gradle run`.
 
 ## Known Bugs
 
@@ -20,7 +25,7 @@ _There are no known bugs._
 
 ## Technologies Used
 
-_Dictionary was created using Java, Spark, Velocity, and Gradle._
+_Virtual Pets was created using Java, PostgreSQL, Spark, Velocity, and Gradle._
 
 ### License
 

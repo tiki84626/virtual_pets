@@ -34,8 +34,8 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE monsters (
-    id serial PRIMARY KEY,
-    name varchar,
+    id integer NOT NULL,
+    name character varying,
     personid integer,
     foodlevel integer,
     sleeplevel integer,
@@ -75,9 +75,9 @@ ALTER SEQUENCE monsters_id_seq OWNED BY monsters.id;
 --
 
 CREATE TABLE persons (
-    id serial PRIMARY KEY,
-    name varchar,
-    email varchar
+    id integer NOT NULL,
+    name character varying,
+    email character varying
 );
 
 
