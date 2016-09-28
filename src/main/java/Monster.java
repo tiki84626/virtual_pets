@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import org.sql2o.*;
 
 public class Monster {
@@ -41,6 +43,23 @@ public class Monster {
         .addParameter("personId", this.personId)
         .executeUpdate()
         .getKey();
+    }
+  }
+
+  public static List<Monster> all() {
+    String sql = "SELECT * FROM monsters";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Monster.class);
+    }
+  }
+
+  public static Monster find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM monsters where id=:id";
+      Monster monster = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Monster.class);
+      return monster;
     }
   }
 
