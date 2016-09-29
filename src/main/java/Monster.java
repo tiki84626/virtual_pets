@@ -122,10 +122,29 @@ public class Monster {
     sleepLevel--;
   }
 
-  public void feed() {
+  public void sleep(){
+    if (sleepLevel >= MAX_SLEEP_LEVEL){
+      throw new UnsupportedOperationException("You cannot make your monster sleep anymore!");
+    }
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE monsters SET lastslept = now() WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+      }
+    sleepLevel++;
+  }
+
+  public void feed(){
     if (foodLevel >= MAX_FOOD_LEVEL){
       throw new UnsupportedOperationException("You cannot feed your monster anymore!");
     }
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE monsters SET lastate = now() WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+      }
     foodLevel++;
   }
 
@@ -133,14 +152,13 @@ public class Monster {
     if (playLevel >= MAX_PLAY_LEVEL){
       throw new UnsupportedOperationException("You cannot play with monster anymore!");
     }
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE monsters SET lastplayed = now() WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+      }
     playLevel++;
-  }
-
-  public void sleep() {
-    if (sleepLevel >= MAX_SLEEP_LEVEL) {
-      throw new UnsupportedOperationException("You cannot make your monster sleep anymore!");
-    }
-    sleepLevel++;
   }
 
 }
